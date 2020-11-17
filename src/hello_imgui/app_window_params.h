@@ -1,6 +1,7 @@
 #pragma once
 #include "imgui.h"
 #include <string>
+#include <GLFW/glfw3.h>
 
 namespace HelloImGui
 {
@@ -23,15 +24,16 @@ Members:
 struct AppWindowParams
 {
     AppWindowParams(std::string windowTitle_ = "",
-                            ImVec2 windowSize_ = {800.f, 600.f},
-                            bool maximized_ = false,
-                            bool fullScreen_ = false,
-                            ImVec2 windowPosition_ = {-11000.f, -1.f})
+                    ImVec2 windowSize_ = {800.f, 600.f},
+                    bool maximized_ = false,
+                    bool fullScreen_ = false,
+                    ImVec2 windowPosition_ = {-11000.f, -1.f}, GLFWwindow* window = nullptr)
         : windowTitle(windowTitle_),
           windowSize(windowSize_),
           maximized(maximized_),
           fullScreen(fullScreen_),
-          windowPosition(windowPosition_)
+          windowPosition(windowPosition_),
+          window(window)
     {
     }
     
@@ -40,6 +42,7 @@ struct AppWindowParams
     bool maximized = false;
     bool fullScreen = false;
     ImVec2 windowPosition = {-11000.f, -1.f};
+    GLFWwindow* window = nullptr;
 };
 
 }  // namespace HelloImGui

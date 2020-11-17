@@ -74,7 +74,7 @@ namespace ImGuiDefaultSettings
 
 void LoadDefaultFont_WithFontAwesomeIcons()
 {
-    float fontSize = 14.f;
+    float fontSize = 24.f;
     std::string fontFilename = "fonts/DroidSans.ttf";
     ImFont* font = LoadFontTTF_WithFontAwesomeIcons(fontFilename, fontSize, false);
     (void)font;
@@ -99,7 +99,19 @@ void SetupDefaultImGuiStyle()
     auto& io = ImGui::GetIO();
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
-    // ImGui::StyleColorsClassic();
+    //ImGui::StyleColorsClassic();
+
+    //copied from tracy
+    auto& _style = ImGui::GetStyle();
+    static float dpiScale = 1.f;
+    _style.WindowBorderSize = 1.f * dpiScale;
+    _style.FrameBorderSize = 1.f * dpiScale;
+    _style.FrameRounding = 5.f;
+    _style.Colors[ImGuiCol_ScrollbarBg] = ImVec4(1, 1, 1, 0.03f);
+    _style.Colors[ImGuiCol_Header] = ImVec4(0.26f, 0.59f, 0.98f, 0.25f);
+    _style.Colors[ImGuiCol_HeaderHovered] = ImVec4(0.26f, 0.59f, 0.98f, 0.35f);
+    _style.Colors[ImGuiCol_HeaderActive] = ImVec4(0.26f, 0.59f, 0.98f, 0.45f);
+    _style.ScaleAllSizes(dpiScale);
 
     // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows
     // can look identical to regular ones.

@@ -100,6 +100,7 @@ namespace HelloImGui
             glfwTerminate();
             HIMG_THROW("RunnerGlfwOpenGl3::Impl_CreateWindowAndContext failed");
         }
+        params.appWindowParams.window = mWindow;
         glfwMakeContextCurrent(mWindow);
         glfwSwapInterval(1);  // Enable vsync
 
