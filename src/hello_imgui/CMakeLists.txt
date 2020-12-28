@@ -105,6 +105,8 @@ if (HELLOIMGUI_USE_GLFW_OPENGL3)
         find_package(glfw3 CONFIG REQUIRED)
     endif()
     target_compile_definitions(${target_name} PUBLIC -DHELLOIMGUI_USE_GLFW_OPENGL3)
+    #add stb_image
+    include_directories(${CMAKE_CURRENT_LIST_DIR}/../../../stb)
     target_link_libraries(${target_name} PUBLIC glfw)
     target_sources(${target_name} PRIVATE
         ${imgui_backends_dir}/imgui_impl_opengl3.h

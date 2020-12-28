@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include "hello_imgui/hello_imgui_error.h"
 #include "runner_glfw_opengl3.h"
+#include "stb_image.h"
 
 namespace HelloImGui
 {
@@ -91,6 +92,11 @@ namespace HelloImGui
                 (int)windowSize.x, (int)windowSize.y, backendWindowParams.windowTitle.c_str(), NULL, NULL);
             if (params.appWindowParams.maximized)
               glfwMaximizeWindow(mWindow);
+            //add icon
+            GLFWimage images[1];
+            images[0].pixels = stbi_load("D:\\projects\\pi-studio\\misc\\icon.png", &images[0].width, &images[0].height, 0, 4);  // rgba channels
+            glfwSetWindowIcon(mWindow, 1, images);
+            stbi_image_free(images[0].pixels);
         }
         if (windowPosition.x >= -10000.f)
             glfwSetWindowPos(mWindow, (int)windowPosition.x, (int)windowPosition.y);
