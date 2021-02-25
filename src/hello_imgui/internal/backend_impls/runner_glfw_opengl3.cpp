@@ -94,7 +94,8 @@ namespace HelloImGui
               glfwMaximizeWindow(mWindow);
             //add icon
             GLFWimage images[1];
-            images[0].pixels = stbi_load("D:\\projects\\pi-studio\\misc\\icon.png", &images[0].width, &images[0].height, 0, 4);  // rgba channels
+            std::string iconPath = params.appWindowParams.rootPath + "\\assets\\icon\\icon.png";
+            images[0].pixels = stbi_load(iconPath.c_str(), &images[0].width, &images[0].height, 0, 4);  // rgba channels
             glfwSetWindowIcon(mWindow, 1, images);
             stbi_image_free(images[0].pixels);
         }

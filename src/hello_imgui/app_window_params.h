@@ -27,13 +27,14 @@ struct AppWindowParams
                     ImVec2 windowSize_ = {800.f, 600.f},
                     bool maximized_ = false,
                     bool fullScreen_ = false,
-                    ImVec2 windowPosition_ = {-11000.f, -1.f}, GLFWwindow* window = nullptr)
+                    ImVec2 windowPosition_ = {-11000.f, -1.f}, GLFWwindow* window_ = nullptr, std::string rootPath_="")
         : windowTitle(windowTitle_),
           windowSize(windowSize_),
           maximized(maximized_),
           fullScreen(fullScreen_),
           windowPosition(windowPosition_),
-          window(window)
+          window(window_),
+          rootPath(rootPath_)
     {
     }
     
@@ -43,6 +44,7 @@ struct AppWindowParams
     bool fullScreen = false;
     ImVec2 windowPosition = {-11000.f, -1.f};
     GLFWwindow* window = nullptr;
+    std::string rootPath = "";
 };
 
 }  // namespace HelloImGui
